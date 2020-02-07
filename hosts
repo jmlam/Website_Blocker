@@ -1,2 +1,4 @@
-www.facebook.com
-facebook.com
+#Format:
+#redirect address and website should be separated by at least one space
+127.0.0.1	www.facebook.com
+127.0.0.1	facebook.com
