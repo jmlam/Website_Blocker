@@ -1,5 +1,6 @@
 import time
 from datetime import datetime as dt
+import re
 hosts_temp = r'hosts'
 hosts_path = r'C:\Windows\System32\drivers\etc\hosts' #list of distracting site
 redirect = "127.0.0.1" # redirect to different 
@@ -21,7 +22,7 @@ while True:
             content = f.readlines() #read contents
             f.seek(0) #put pointer at top of file
             for line in content:
-                if not any(website in line for website in website_list):#any returns True if any website is in line any line of the content
+                if not re.match("^127.0.0.1\s(www.)*([a-z]|[A-Z])*.com$", line):
                     f.write(line) #write contents of file without website
             f.truncate() #delete everything below
     
